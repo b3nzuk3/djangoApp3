@@ -36,6 +36,8 @@ ALLOWED_HOSTS = ['babapp1-7867.herokuapp.com','127.0.0.1']
 
 INSTALLED_APPS = [
     'imageGram.apps.ImagegramConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
