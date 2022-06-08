@@ -1,24 +1,22 @@
 from django.shortcuts import render,redirect
-from .models import Image
+from .models import User,Image,Comment
 from django.db.models import Q
 
 
 
 def search(request):
     ctx={}
-    images = Image.objects.all()
+    users = User.objects.all()
     if request.method == 'GET':
         query = request.GET.get("search")
-        query_set = images.filter(
-            Q(name__icontains=query) |
-            Q(category__name__icontains=query) |
-            Q(location__name__icontains=query )
+        query_set = users.filter(
+            Q(username__icontains=query)
             )
         total = query_set.count()
         ctx.update({
             'total':total,
             'query':query,
-            'images':query_set
+            'users':query_set
         })
 
         return render(request, "imageGram/search.html", ctx)
@@ -26,6 +24,15 @@ def search(request):
 
 def home(request):
     images=Image.objects.all()
+    if request.method == 'POST':
+        comment = Comment.objects.create(
+            user = request.user,
+            post = post,
+            body = request.POST.get('body')
+        )
+        post.comments = post.comments + 1
+        post.save()
+        return redirect('post', pk=post.id)
     ctx = {'images': images}
 
     return render(request, 'imageGram/home.html', ctx)

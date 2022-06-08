@@ -1,38 +1,65 @@
 {% extends 'imageGram/base.html' %}
 {% block content %}
-<div class="container ">
-  <div class="row">
-    <h2 class="text-muted mt-4" >Anime</h2>
-    {% for picture in images %}
-    <div class="col col-lg-4  text-align-center">
-      <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" class="image" style="width:22.5rem; height:17rem;" src="{{picture.image.url }}" alt="">
-    </div>
+<div class="container">
+  {% for picture in images %}
+  <!-- <div class="card" style="width:40rem">
+    <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" class="image card-image-top" style="width:39rem; height:17rem;" src="{{picture.image.url }}" alt="">
+    <div class="card-body">
 
-    <!-- Modal -->
-    <div class="modal fade" id="mymodal{{picture.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{picture.user}}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <img style="height:30rem; width:47.9rem;" src="{{ picture.image.url }}" alt="">
-            <small>
-              <p class="text-muted text-end">date posted {{ picture.created }}</p>
-            </small>
-          </div>
-          <div class="modal-footer justify-content-start">
-            <small>{{ picture.description }}</small> <br>
-            <div class="text-end">
-              <input type="text" value="{{picture.image.url}}" id="myInput">
-              <button class="btn btn-primary" onclick="myFunction()">Copy link</button>
+    </div>
+  </div> -->
+  <div class="post">
+    <div class="info">
+      <div class="user">
+        <div class="profile-pic"><img src="img/cover 1.png" alt=""></div>
+        <p class="username">{{picture.user}}</p>
+      </div>
+      <img  class="options" alt="">
+    </div>
+    <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" src="{{picture.image.url }}" class="post-image" alt="">
+    <div class="post-content">
+      <div class="reaction-wrapper">
+        <img src="img/like.PNG" class="icon" alt="">
+      </div>
+      <p class="likes">1,012 likes</p>
+      <p class="description"><span>username </span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur tenetur veritatis placeat, molestiae impedit aut provident eum quo natus molestias?</p>
+      <p class="post-time">{{picture.created}}</p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="mymodal{{picture.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{picture.user}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-8">
+              <img style="height:30rem; width:47rem;" src="{{ picture.image.url }}" alt="">
+              <small>
+                <p class="text-muted text-end">date posted {{ picture.created }}</p>
+              </small>
             </div>
+            <div class="col-4">
+              <h3 class="text-center">Comments</h3>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer justify-content-start">
+          <small>{{ picture.description }}</small> <br>
+          <div class="text-end">
+            <input type="text" value="{{picture.image.url}}" id="myInput">
+            <button class="btn btn-primary" onclick="myFunction()">Copy link</button>
           </div>
         </div>
       </div>
     </div>
-    {% endfor %}
   </div>
+  {% endfor %}
 </div>
+
 {% endblock %}
