@@ -29,4 +29,7 @@ def home(request):
     ctx = {'images': images}
 
     return render(request, 'imageGram/home.html', ctx)
+
+# def addImage(request):
+
 # Create your views here.

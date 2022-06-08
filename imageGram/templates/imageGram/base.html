@@ -12,39 +12,56 @@
   <link rel="stylesheet" href="{% static "imageGram/main.css" %}">
   <title>Bombsbay</title>
   <style media="screen">
-  .content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-    margin-bottom: 20px;
-  }
-
+    .content-section {
+      background: #ffffff;
+      padding: 10px 20px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark mb-5">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class="container-fluid">
       <div class="">
         <a style="font-size:2.5rem;" class="navbar-brand" href="{% url 'image-home' %}"><i style="color:#FBCB0A;" class="fas fa-bomb favicon fa-beat"></i>bombs<span style="color:#590696;">bay</span></a>
       </div>
-      <form class="" action="{% url 'image-search' %}" method="get">
-        <div class="container h-100">
-          <div class="d-flex justify-content-end h-100">
-            <div class="searchbar">
-              <input class="search_input" type="text" name="search" placeholder="Search...">
-              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{% url 'image-home' %}">Home</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Post</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+          <form class="" action="{% url 'image-search' %}" method="get">
+            <div class="container ">
+              <div class="d-flex justify-content-center ">
+                <div class="r">
+                  <input class="" type="text" name="search" placeholder="Search...">
+                  <button class="btn btn-outline-light" type="submit">Search</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </form>
+          </form>
+        </ul>
+
+      </div>
+
     </div>
 
   </nav>
   {% block content %}{% endblock %}
 
-  <section class="mt-5 text-center" style="background-color:black;">
+  <!-- <section class="mt-5 text-center" style="background-color:black;">
     <div style="color:#C70A80" class="container ">
       <footer class="pb-3">
         <p> <small>Do not sell my personal information | Privacy Policy | Terms and Conditions</small></p>
@@ -53,7 +70,7 @@
     </div>
     <footer><small>&copy 2022 all rights reserved</small></footer>
 
-  </section>
+  </section> -->
 
   <!-- JavaScript Bundle with Popper -->
 

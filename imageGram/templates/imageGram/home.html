@@ -4,7 +4,6 @@
   <div class="row">
     <h2 class="text-muted mt-4" >Anime</h2>
     {% for picture in images %}
-    {% if picture.category.name == "anime" %}
     <div class="col col-lg-4  text-align-center">
       <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" class="image" style="width:22.5rem; height:17rem;" src="{{picture.image.url }}" alt="">
     </div>
@@ -33,76 +32,6 @@
         </div>
       </div>
     </div>
-    {% endif %}
-    {% endfor %}
-    <br>
-    <h2 class="text-muted mt-4">Landscape</h2>
-    {% for picture in images %}
-    {% if picture.category.name == "landscape" %}
-    <div class="col col-lg-4  text-align-center">
-      <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" class="image" style="width:22.5rem; height:17rem;" src="{{picture.image.url }}" alt="">
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="mymodal{{picture.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{picture.name}}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <img style="height:30rem; width:47.9rem;" src="{{ picture.image.url }}" alt="">
-            <small>
-              <p class="text-muted text-end">date posted {{ picture.created }}</p>
-            </small>
-          </div>
-          <div class="modal-footer justify-content-start">
-            <small>{{ picture.description }}</small> <br>
-            <div class="text-end">
-              <input type="text" value="{{picture.image.url}}" id="myInput">
-              <button class="btn btn-primary" onclick="myFunction()">Copy link</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-    <br>
-    <h2 class="text-muted pb-1 mt-4">Animals</h2>
-    {% for picture in images %}
-    {% if picture.category.name == "animals" %}
-    <div class="col col-lg-4  text-align-center">
-      <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" class="image" style="width:22.5rem; height:17rem;" src="{{picture.image.url }}" alt="">
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="mymodal{{picture.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">{{picture.name}}</h5>
-
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <img style="height:30rem; width:47.9rem;" src="{{ picture.image.url }}" alt="">
-            <small>
-              <p class="text-muted text-end">date posted {{ picture.created }}</p>
-            </small>
-          </div>
-          <div class="modal-footer justify-content-start">
-            <small>{{ picture.description }}</small> <br>
-            <div class="text-end">
-              <input type="text" value="{{picture.image.url}}" id="myInput">
-              <button class="btn btn-primary" onclick="myFunction()">Copy link</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
     {% endfor %}
   </div>
 </div>
