@@ -1,14 +1,13 @@
-<<<<<<< HEAD
 # Bombsbay
 
 This project was generated with [Python3.10](https://www.python.org/downloads/release/python-3100/)
-#### This site is a Blogs site application, May-19-2022
+#### This site is a Blogs site application, june-8-2022
 ## Author
 #### By b3nzuk3
 
 
 ## Description
-     This web application is designed for image viewing , search functionality in django and image link copying.
+     This web application is designed to clone the famous and most widely used instagram app.
 
 ## Behavior Driven Development
       1. When the app is loaded it first gets info from the database to display available Images.
@@ -58,4 +57,3 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 =======
 # djangoapp2
->>>>>>> origin/master
