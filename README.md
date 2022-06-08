@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Bombsbay
 
 This project was generated with [Python3.10](https://www.python.org/downloads/release/python-3100/)
@@ -58,4 +57,3 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 =======
 # djangoapp2
->>>>>>> origin/master
