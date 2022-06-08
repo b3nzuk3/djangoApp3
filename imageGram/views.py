@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Image
+from .forms import ImageForm
 from django.db.models import Q
 
 
@@ -30,6 +31,12 @@ def home(request):
 
     return render(request, 'imageGram/home.html', ctx)
 
-# def addImage(request):
 
-# Create your views here.
+def postImage(request):
+    if request.method == 'POST':
+        image = request.FILES.get('image')
+        description = request.POST.get('description')
+        new_post = Image.objects.create(user=request.user, image=image, description=description)
+        new_post.save()
+        return redirect('image-home')
+    return render(request, 'imageGram/image_upload.html')

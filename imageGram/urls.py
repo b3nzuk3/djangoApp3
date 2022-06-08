@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='image-home'),
     path('search_results/', views.search, name='image-search'),
-    
+    path('image_upload/', views.postImage, name='image-upload'),
+
 ]

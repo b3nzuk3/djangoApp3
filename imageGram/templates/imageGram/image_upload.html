@@ -1,0 +1,37 @@
+{% extends "imageGram/base.html" %}
+{% block content %}
+<form
+  style="max-width: 600px; margin: 0 auto; margin-top: 200px"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="formFileMultiple" class="form-label">Upload Image</label>
+    <input
+      class="form-control"
+      type="file"
+      id="formFileMultiple"
+      name="image"
+      required
+      multiple
+    />
+  </div>
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      placeholder="Leave a comment here"
+      id="floatingTextarea2"
+      style="height: 150px"
+      name="caption"
+      required
+    ></textarea>
+    <label for="floatingTextarea2">Caption</label>
+  </div>
+
+  <button type="submit" class="btn btn-outline-secondary mt-3">Post</button>
+  <a href="{{request.META.HTTP_REFERER}}" class="btn btn-danger mt-3"
+    >Cancel</a
+  >
+</form>
+   {% endblock %}
