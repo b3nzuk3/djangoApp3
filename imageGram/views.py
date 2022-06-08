@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from .models import Image
-from .forms import ImageForm
 from django.db.models import Q
 
 
