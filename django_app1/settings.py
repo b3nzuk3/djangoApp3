@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-# import django_heroku
+import django_heroku
 from pathlib import Path
 
 
@@ -85,14 +85,22 @@ WSGI_APPLICATION = 'django_app1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-
+DATABASES={
+   'default':{
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':'d691n9hs9ga8ir',
+      'USER':'imsfqnigugutdk',
+      'PASSWORD':'54d99083b62d5b099ec077a214bb2fa2a569b1836a11e406dd5becf28203764c',
+      'HOST':'ec2-54-147-33-38.compute-1.amazonaws.com',
+      'PORT':'5432',
+   }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -147,5 +155,5 @@ cloudinary.config(
   api_key = "791785238298589",
   api_secret = "WPQ2gU31-wyycuPi3QHe4gPcsRY"
 )
-# 
-# django_heroku.settings(locals())
+
+django_heroku.settings(locals())
