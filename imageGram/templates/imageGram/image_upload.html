@@ -1,22 +1,10 @@
 {% extends "imageGram/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-<form
-  style="max-width: 600px; margin: 0 auto; margin-top: 50px"
-  method="POST"
-  enctype="multipart/form-data"
->
+<form style="max-width: 600px; margin: 0 auto; margin-top: 50px" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  <div class="mb-3">
-    <label for="formFileMultiple" class="form-label">Upload Image</label>
-    <input
-      class="form-control"
-      type="file"
-      id="formFileMultiple"
-      name="image"
-      required
-      multiple
-    />
-  </div>
+  {{uform|crispy}}
+  <!-- <label class="mt-3 mb-3" for="formFileMultiple" class="form-label">Upload Project</label>
   <div class="form-floating">
     <textarea
       class="form-control"
@@ -26,12 +14,32 @@
       name="caption"
       required
     ></textarea>
-    <label for="floatingTextarea2">Caption</label>
+    <label for="floatingTextarea2">Project Name</label>
+  </div>
+  <div class="mt-3 mb-3">
+    <input
+      class="form-control"
+      type="file"
+      id="formFileMultiple"
+      name="image"
+      required
+      multiple
+    />
   </div>
 
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      placeholder="Leave a comment here"
+      id="floatingTextarea2"
+      style="height: 150px"
+      name="caption"
+      required
+    ></textarea>
+    <label for="floatingTextarea2">Project description</label>
+  </div> -->
+
   <button type="submit" class="btn btn-outline-secondary mt-3">Post</button>
-  <a href="{{request.META.HTTP_REFERER}}" class="btn btn-danger mt-3"
-    >Cancel</a
-  >
+  <a href="{{request.META.HTTP_REFERER}}" class="btn btn-danger mt-3">Cancel</a>
 </form>
-   {% endblock %}
+{% endblock %}

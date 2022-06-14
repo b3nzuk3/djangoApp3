@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import User,Image,Comment
+from .forms import PostForm
 from django.db.models import Q
 
 
@@ -39,10 +40,14 @@ def home(request):
 
 
 def postImage(request):
+    posts= Image.objects.all().order_by("-created")
     if request.method == 'POST':
-        image = request.FILES.get('image')
-        description = request.POST.get('description')
-        new_post = Image.objects.create(user=request.user, image=image, description=description)
-        new_post.save()
-        return redirect('image-home')
-    return render(request, 'imageGram/image_upload.html')
+        uform = PostForm(request.POST, request.FILES)
+        if uform.is_valid():
+            post=uform.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('image-home')
+    else:
+        uform = PostForm()
+    return render(request, 'imageGram/image_upload.html',{'uform': uform,'posts':posts})
