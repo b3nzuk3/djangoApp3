@@ -101,6 +101,7 @@ DATABASES={
       'HOST':'ec2-54-147-33-38.compute-1.amazonaws.com',
       'PORT':'5432',
    }
+  }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
