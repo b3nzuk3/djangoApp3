@@ -7,11 +7,11 @@ from django.db.models import Q
 
 def search(request):
     ctx={}
-    users = User.objects.all()
+    users = Image.objects.all()
     if request.method == 'GET':
         query = request.GET.get("search")
         query_set = users.filter(
-            Q(username__icontains=query)
+            Q(website__icontains=query)
             )
         total = query_set.count()
         ctx.update({

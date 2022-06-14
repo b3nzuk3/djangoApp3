@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from imageGram.models import Image
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, ProfileUpdateForm, UserUpdateForm
 
@@ -17,9 +18,12 @@ def register(request):
 
 @login_required
 def profile(request):
+    users = Image.objects.all()
+    ctx = {'users': users}
 
 
-    return render(request, 'users/profile.html')
+
+    return render(request, 'users/profile.html', ctx)
 
 @login_required
 def settings(request):

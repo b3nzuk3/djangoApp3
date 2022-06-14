@@ -1,45 +1,40 @@
 {%extends "imageGram/base.html"%}
 {% block content %}
-<div class="container">
+<div class="container heading">
   <div class="row">
     <h3>results found: {{ total }}</h3>
-    {% for user in users %}
+    {% for picture in users %}
     <div class="row">
-      <div class="col-6 text-center">
-        <img class="card-img-top" style="height:125px; width:125px; border-radius:100%;" src="{{ user.profile.image.url }}" alt=""
-        <p class="card-text">{{user.username}}</p>
+      <div class="col-4 text-center">
+        <h4 class="text-center">{{picture.website}}</h4>
+        <img data-bs-toggle="modal" data-bs-target="#mymodal{{picture.id}}" style="height:17rem; width:25rem; border-radius:2.5%;" src="{{picture.image.url }}" class="post-image" alt="">
       </div>
-      <div class="col-6">
-
-      </div>
-
     </div>
-
-
-
-
-
   </div>
   <!-- Modal -->
   <div class="modal fade" id="mymodal{{picture.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{picture.name}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{picture.website}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img style="height:30rem; width:47.9rem;" src="{{ picture.image.url }}" alt="">
-          <small>
-            <p class="text-muted text-end">date posted {{ picture.created }}</p>
-          </small>
-        </div>
-        <div class="modal-footer justify-content-start">
-          <small>{{ picture.description }}</small> <br>
-          <div class="text-end">
-            <input type="text" value="{{picture.image.url}}" id="myInput">
-            <button class="btn btn-primary" onclick="myFunction()">Copy link</button>
+          <div class="row">
+            <div class="col-8">
+              <img style="height:30rem; width:47rem;" src="{{ picture.image.url }}" alt="">
+              <small>
+                <p class="text-muted text-end">date posted {{ picture.created }}</p>
+              </small>
+            </div>
+            <div class="col-4">
+              <h3 class="text-center">Ratings</h3>
+            </div>
           </div>
+
+        </div>
+        <div class="modal-footer justify-content-center">
+          <small style="font-size:1rem;">{{ picture.description }}</small> <br>
         </div>
       </div>
     </div>
