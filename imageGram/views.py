@@ -8,16 +8,21 @@ from django.db.models import Q
 def search(request):
     ctx={}
     users = Image.objects.all()
+    using = User.objects.all()
     if request.method == 'GET':
         query = request.GET.get("search")
         query_set = users.filter(
             Q(website__icontains=query)
             )
+        query_setter = using.filter(
+            Q(username__icontains=query)
+        )
         total = query_set.count()
         ctx.update({
             'total':total,
             'query':query,
-            'users':query_set
+            'users':query_set,
+            'using':query_setter
         })
 
         return render(request, "imageGram/search.html", ctx)
