@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-import django_heroku
+# import django_heroku
 from pathlib import Path
 
 
@@ -147,5 +147,5 @@ cloudinary.config(
   api_key = "791785238298589",
   api_secret = "WPQ2gU31-wyycuPi3QHe4gPcsRY"
 )
-
-django_heroku.settings(locals())
+# 
+# django_heroku.settings(locals())
