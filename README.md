@@ -1,14 +1,27 @@
-<<<<<<< HEAD
-# Bombsbay
+# Awwwards
 
 This project was generated with [Python3.10](https://www.python.org/downloads/release/python-3100/)
-#### This site is a Blogs site application, june-8-2022
+#### This site is a Project Views site, june-13-2022
 ## Author
 #### By b3nzuk3
 
 
 ## Description
      This web application is designed to clone the famous and most widely used instagram app.
+     
+## Endpoints
+
+- Get all posts: 'https://babapp3.herokuapp.com/api/images/' : Method = 'GET'
+
+- Get all profiles: 'https://babapp3.herokuapp.com/api/profiles/'  : Method = 'GET'
+
+## Installation
+
+Clone the repository
+Create a virtual environment
+Install Django and other requirements in my requirements.txt file in your repository folder
+Run the IP address on the browser
+
 
 ## Behavior Driven Development
       1. When the app is loaded it first gets info from the database to display available Images.
@@ -22,12 +35,6 @@ This project was generated with [Python3.10](https://www.python.org/downloads/re
 * If you want to clone it locally you can follow the running instructions below.
 
        $ python3.10
-
-## Running Application
-* To run the application, open the cloned file in the terminal and run the following commands:
-
-       $ chmod +x run.py
-       $ ./run.py
 
 ## Other Projects
 1. Project alpha:
